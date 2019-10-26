@@ -100,3 +100,4 @@ We enforce a Code of Conduct for all maintainers and contributors of this Guide.
 # License
 
 The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/LICENSE.md).
+# helps
