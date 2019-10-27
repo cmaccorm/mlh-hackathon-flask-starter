@@ -1,0 +1,12 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+	<body>
+		Make a post!
+		<form method="POST">
+			{{ form.hidden_tag() }}
+			{{ form.body() }} 
+			{{ form.submit() }}
+		</form>
+	</body>
+{% endblock %}
