@@ -5,8 +5,21 @@
 		Make a post!
 		<form method="POST">
 			{{ form.hidden_tag() }}
-			{{ form.body() }} 
-			{{ form.submit() }}
+			Event: {{ form.Event }} 
+			location: {{ form.Location }} 
+			Date: {{ form.Date}} 
+			Cap: {{ form.Cap}} 
+			{{ form.submit }}
 		</form>
 	</body>
+
+	{% for post in posts %}
+	<li>
+	<div class="post-body">{{ post.Event }}</div> <
+	<div class="post-body">{{ post.Location }}</div> 
+	<div class="post-body">{{ post.Date }}</div> 
+	<div class="post-body">{{ post.Cap }}</div> 
+</li>
+{% endfor %}
+</ul>
 {% endblock %}
