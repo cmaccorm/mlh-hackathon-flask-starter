@@ -1,25 +1,72 @@
 {% extends "layouts/layout.html" %}
 
 {% block content %}
+
+
+
 	<body>
-		Make a post!
+		<div class="border rounded p-5 mb-5">
 		<form method="POST">
 			{{ form.hidden_tag() }}
-			Event: {{ form.Event }} 
-			location: {{ form.Location }} 
-			Date: {{ form.Date}} 
-			Cap: {{ form.Cap}} 
+			<h5 class="py-1 m-0">Event: {{ form.Event }} </h5>
+			<p>location: {{ form.Location }}</p>
+			<p>Date: {{ form.Date}}</p>
+			<p>Cap: {{ form.Cap}}</p>
+			<p>Description: {{ form. Description}}</p>
 			{{ form.submit }}
 		</form>
+	</div>
 	</body>
 
+<div class="border rounded p-5 mb-5">
 	{% for post in posts %}
-	<li>
-	<div class="post-body">{{ post.Event }}</div> <
-	<div class="post-body">{{ post.Location }}</div> 
-	<div class="post-body">{{ post.Date }}</div> 
-	<div class="post-body">{{ post.Cap }}</div> 
-</li>
+	<div class="post-body"><h5 class="py-1 m-0">{{ post.Event }}</h5></div> 
+	<div class="post-body"><p>Location: {{ post.Location }}</p></div> 
+	<div class="post-body"><p>Time: {{ post.Date }}</p></div> 
+	<div class="post-body"><p>Cap: {{ post.Cap }}</p></div> 
+	<div class="post-body"><p><div class="bg-light rounded p-5 text-center text-muted">{{ post.Description }}</p></div> </div>
 {% endfor %}
+</div>
 </ul>
+
+
+<div class="border rounded p-5 mb-5">
+    <h5 class="py-1 m-0">Flower City Picker</h5>
+    <p>Location: Rochester Public Market</p>
+    <p>Time: 2019-11-2 Saturday 12:30-3:30pm</p>
+    <p>Cap: 12</p>
+
+      <div class="bg-light rounded p-5 text-center text-muted">
+       <p>Founded by Khoury Humphrey in January of 2015, Flower City Pickers (FCP) is a secular, all inclusive group of volunteers that redistributes leftover and discarded produce recovered from Rochester's Public Market to local homeless shelters, halfway houses, soup kitchens, food pantries, and other organizations with need for food. Our goal is to feed people, not landfills!</p>
+      </div>
+  
+  </div>
+
+  <div class="border rounded p-5 mb-5">
+    <h5 class="py-1 m-0">Ronald McDonald House --- Make a Meal</h5>
+    <p>Location: 333 Westmoreland Dr, Rochester, NY </p>
+    <p>Time: 2019-11-1 Friday 6-8pm</p>
+    <p>Cap: 2</p>
+
+      <div class="bg-light rounded p-5 text-center text-muted">
+       <p>There’s nothing like home cooking when you’re so far from home… meals are very important to our families.  Cooking a meal for a family is a wonderful team-building experience, and a great opportunity for your corporate group, club, team or organization.
+       </p>
+      </div>
+  
+  </div>
+
+    <div class="border rounded p-5 mb-5">
+    <h5 class="py-1 m-0">Mount Hope Cemetery</h5>
+    <p>Location: Rochester Public Market</p>
+    <p>Time: 2020-4-1</p>
+    <p>Cap: 40</p>
+
+      <div class="bg-light rounded p-5 text-center text-muted">
+       <p>Mount Hope Cemetery is a one-of-a-kind environment that features an extraordinary landscape. Maintaining the vast amount of grounds requires a great deal of volunteer effort and community support. Volunteer events are held rain or shine. Volunteers must be able to lift 30lbs, and dress weather and work appropriately (boots and long pants). Tools, safety equipment (gloves, eye and ear protection) and water are provided, but feel free to bring your own provisions. Sunscreen and insect repellent is advised. <em>Volunteers under the age of 18 must be accompanied by a chaperone at all times while on the grounds.</em>
+!</p>
+      </div>
+  
+  </div>
 {% endblock %}
+
+

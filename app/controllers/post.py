@@ -20,6 +20,7 @@ class PostForm(FlaskForm):
     Location = StringField('Location',validators=[InputRequired()])
     Date = DateTimeField('Date', validators=[InputRequired('Please enter YY-mm-dd H:M:S')], format='%Y-%m-%d %H:%M:%S')
     Cap = IntegerField ('last name', validators=[InputRequired()])
+    Description = StringField('Description',validators=[InputRequired()])
     submit = SubmitField('Submit')
 
 
@@ -29,7 +30,7 @@ def makePost():
     if form.validate_on_submit():
         data = GitHub.get_user_from_token(session['access_token'])
         post = Post(Event=form.Event.data, Location=form.Location.data
-            ,Date=form.Date.data,Cap=form.Cap.data,
+            ,Date=form.Date.data,Cap=form.Cap.data,Description = form.Description.data,
             author=db.session.query(User).get(data['id']))
         db.session.add(post)
         db.session.commit()

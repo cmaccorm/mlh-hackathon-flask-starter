@@ -40,5 +40,6 @@ class Post(db.Model):
     Location = db.Column(db.Text)
     Date = db.Column(db.Text)
     Cap = db.Column(db.Text)
+    Description = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
