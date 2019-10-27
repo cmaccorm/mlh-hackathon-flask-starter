@@ -1,70 +1,50 @@
 {% extends "tutorial/base.html" %}
 {% from "tutorial/repo.html" import render_repo with context %}
 
-{% block title %}Requesting Data{% endblock %}
-{% block subtitle %}Learn how to retrieve data from GitHub.{% endblock %}
+{% block title %}Volunteering events{% endblock %}
+{% block subtitle %}Check out volunteering opportunities in Rochester area.{% endblock %}
 
 {% block container %}
-  <h4 class="py-1 m-0">GitHub API</h4>
-  <p class="mb-5">GitHub provides a way to request and interact with data on its platform. This makes it possible to use GitHub data in your application. For example, you can see all your favorite GitHub projects or show what code you are working. This interaction is done through a interface called an API. We provided examples of using GitHub's API to help you get started.</a>
+  <h4 class="py-1 m-0">Looking for volunteering opportunities?</h4>
+  <p class="mb-5">See what we have for you</a>
 
   <div class="border rounded p-5 mb-5">
-    <h5 class="py-1 m-0">Retrieving your starred projects</h5>
-    <p>You can retrieve your starred projects on GitHub using the <code>/user/starred</code> endpoint. Within this starter project, you can also use the <code>services/github.py</code> module, which makes it easier to make an authenticated request.<p>
-    <p>A GET request to the <code>/user/starred</code> endpoint using the <code>github.py</code> module would follow this format:</p>
-    <pre class="bg-light rounded"><code>
-      github = GitHub(access_token=session['access_token'])
-      results = github.get('/user/starred')
-    </code></pre>
-    <p class="mt-4">As a result, you will see your starred repositories below:</p>
-    {% if tutorial1|length == 0 %}
+    <h5 class="py-1 m-0">Flower City Picker</h5>
+    <p>Location: Rochester Public Market</p>
+    <p>Nov. 2, 2019 Saturday 12:30-3:30pm</p>
+    <p>Cap: 12</p>
+
       <div class="bg-light rounded p-5 text-center text-muted">
-        {% if g.user %}
-          <p class="m-4">You haven't starred any repositories on GitHub yet. You can star <a href="https://github.com/MLH/mlh-hackathon-flask-starter">this project here</a>.</p>
-        {% else %}
-          <p class="m-4">This example requires an authenticated user. Please log in to see your starred repositories.</p>
-        {% endif %}
+       <p>Founded by Khoury Humphrey in January of 2015, Flower City Pickers (FCP) is a secular, all inclusive group of volunteers that redistributes leftover and discarded produce recovered from Rochester's Public Market to local homeless shelters, halfway houses, soup kitchens, food pantries, and other organizations with need for food. Our goal is to feed people, not landfills!</p>
       </div>
-    {% endif %}
-
-    {% for item in tutorial1 %}
-      {{ render_repo(item, loop) }}
-    {% endfor %}
+  
   </div>
 
-  <div class="border rounded p-5">
-    <h5 class="py-1 m-0">Searching GitHub</h5>
-    <p>The endpoint for searching GitHub projects is located at <code>/search/repositories</code>. You can use this endpoint to find projects on GitHub. Within this starter project, you also can use the <code>services/github.py</code> module, which makes it easier to make an authenticated request.
-    <p>A GET request to the <code>/search/repositories</code> endpoint using the <code>github.py</code> module would follow this format:</p>
-    <pre class="bg-light rounded"><code>
-      github = GitHub(access_token=session['access_token'])
-      results = github.get('/search/repositories')
-    </code></pre>
-    <p class="mt-4">As a result, you should be able to search for GitHub projects below:</p>
-    <div class="text-center mx-auto mb-3">
-      <form action="{{ url_for('tutorial.requesting') }}" method="get" class="d-flex">
-        <input name="query" class="form-control form-control-sm" value="{{ query }}" placeholder="Search for repos" />
-        <button type="submit" class="btn btn-primary btn-sm ml-1">Search</button>
-      </form>
-    </div>
+  <div class="border rounded p-5 mb-5">
+    <h5 class="py-1 m-0">Ronald McDonald House --- Make a Meal</h5>
+    <p>LLocation: 333 Westmoreland Dr, Rochester, NY </p>
+    <p>Nov. 1, 2019 Friday 6-8pm</p>
+    <p>Cap: 2</p>
 
-    {% if tutorial2|length == 0 %}
-      <div class="rounded bg-light p-5 text-center text-muted">
-        {% if g.user %}
-          {% if query or query|length == 0 %}
-            <p class="m-4">You can use the search bar above to find new projects.</p>
-          {% else %}
-            <p class="m-4">Cannot find a repository that matches that input. Please try again.</p>
-          {% endif %}
-        {% else %}
-          <p class="m-4">Please sign in to use the search functionality.</p>
-        {% endif %}
+      <div class="bg-light rounded p-5 text-center text-muted">
+       <p>There’s nothing like home cooking when you’re so far from home… meals are very important to our families.  Cooking a meal for our families is a wonderful team-building experience, and a great opportunity for your corporate group, club, team or organization.
+       </p>
       </div>
-    {% endif %}
-
-    {% for item in tutorial2 %}
-      {{ render_repo(item, loop) }}
-    {% endfor %}
+  
   </div>
+
+    <div class="border rounded p-5 mb-5">
+    <h5 class="py-1 m-0">Mount Hope Cemetery</h5>
+    <p>Location: Rochester Public Market</p>
+    <p>Apr. 11, 2020</p>
+    <p>Cap: 40</p>
+
+      <div class="bg-light rounded p-5 text-center text-muted">
+       <p>Mount Hope Cemetery is a one-of-a-kind environment that features an extraordinary landscape. Maintaining the vast amount of grounds requires a great deal of volunteer effort and community support. Volunteer events are held rain or shine. Volunteers must be able to lift 30lbs, and dress weather and work appropriately (boots and long pants). Tools, safety equipment (gloves, eye and ear protection) and water are provided, but feel free to bring your own provisions. Sunscreen and insect repellent is advised. <em>Volunteers under the age of 18 must be accompanied by a chaperone at all times while on the grounds.</em>
+!</p>
+      </div>
+  
+  </div>
+
 
 {% endblock %}
