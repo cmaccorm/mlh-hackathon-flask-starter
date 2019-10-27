@@ -23,8 +23,9 @@ class PostForm(FlaskForm):
 def makePost():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.body.data, author=User(username="testFakeUsername", avatar_url="fake", github_id=123))
+        data = GitHub.get_user_from_token(session['access_token'])
+        post = Post(body=form.body.data, author=db.session.query(User).get(data['id']))
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('home.index'))
+        return render_template('tutorial/showPosts.html', post=post)
     return render_template('tutorial/postForm.html', form = form)
