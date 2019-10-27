@@ -6,7 +6,7 @@ from flask import flash, redirect, render_template, request
 from flask import g, Blueprint, flash, url_for, session
 from datetime import datetime
 
-from app.models.user import User
+from app.models.user import User, Post
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email
@@ -23,7 +23,7 @@ class PostForm(FlaskForm):
 def makePost():
     form = PostForm()
     if form.validate_on_submit():
-        post = PostForm(body=form.body.data, author="Test")
+        post = Post(body=form.body.data, author=User(username="testFakeUsername", avatar_url="fake", github_id=123))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('home.index'))
